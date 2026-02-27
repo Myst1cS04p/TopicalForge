@@ -4,16 +4,9 @@ Automatically downloads CIE A-Level past papers, extracts individual questions, 
 
 ## Features
 
-**Parallel Processing Pipeline**
-- **Downloader**: Automatically fetches PDFs from bestexamhelp.com using Selenium
-- **Slicer**: Extracts individual questions from PDFs as images
-- **Sorter**: Clean UI for manually tagging questions by topic
-
-**Smart Organization**
-- Each question saved as a separate image
-- Automatic matching of questions with mark schemes
-- Topic-based folder structure
-- JSON database tracking all metadata
+- **Automatically Download Past Papers**
+- **Automatically Slice Questions into Images**
+- **Manually sort the questions in the ~~ugly asf~~ beautiful UI**
 
 ## Installation
 
@@ -32,15 +25,16 @@ sudo apt install chromium-chromedriver
 
 # Or download manually from:
 # https://chromedriver.chromium.org/downloads
+Do this if ur on windows
 ```
 
 ### Install Python Dependencies
 
 ```bash
-pip install -r requirements.txt --break-system-packages
+pip install -r requirements.txt
 ```
 
-Required packages:
+Installs packages:
 - `selenium` - Web scraping
 - `Pillow` - Image processing
 - `PyMuPDF` - PDF parsing
@@ -64,7 +58,7 @@ Select option **1** to run all workers together.
 python3 main.py
 # Select: 1
 ```
-Runs Downloader -> Slicer -> Sorter in parallel
+Downloads papers, slices them up, and asks you to sort them all in parallel.
 
 **Mode 2: Download Only**
 ```bash
@@ -78,7 +72,7 @@ Just downloads PDFs (useful for batch downloading overnight)
 python3 main.py
 # Select: 3
 ```
-Processes existing PDFs to extract questions
+Processes existing PDFs to extract questions (useful for sociopaths who don't like saving time by using option 1)
 
 **Mode 4: Sort Only**
 ```bash
@@ -96,26 +90,17 @@ Process PDFs and tag questions (skips downloading)
 
 ### How the Pipeline Works
 
-```
-┌─────────────┐         ┌─────────────┐         ┌─────────────┐
-│ DOWNLOADER  │────────▶│   SLICER    │────────▶│   SORTER    │
-└─────────────┘         └─────────────┘         └─────────────┘
-      │                       │                       │
-      ▼                       ▼                       ▼
-  data/pdfs/         data/raw_questions/    data/sorted_questions/
-```
-
 Each worker runs independently:
 - **Downloader** saves PDFs to `data/pdfs/`
-- **Slicer** watches `pdfs/` and extracts questions to `raw_questions/`
+- **Slicer** watches `pdfs/` and extracts questions as images to `raw_questions/`
 - **Sorter** displays questions from `raw_questions/` for tagging
 
 ## Sorter UI Guide
 
 ### Keyboard Shortcuts
 - **1-9**: Quick assign to topic (based on current subject's topic list)
-- **→** or **Space**: Skip question
-- **←**: Go back to previous question
+- **Left Arrow** or **Space**: Skip question
+- **Right Arrow**: Go back to previous question
 
 ### Workflow
 1. Question displays with metadata (subject, session, paper, question number)
@@ -124,8 +109,8 @@ Each worker runs independently:
 4. Question auto-saves and moves to next
 
 ### Progress Tracking
-- Progress bar shows completion percentage
-- All tagged questions automatically saved to database
+- Progress percentage in the top right shows completion percentage
+- All tagged questions automatically saved to database (it's js a json file lol)
 - Images copied to topic-specific folders
 
 ## Configuration
