@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Data directories (don't commit PDFs and images)
+data/pdfs/*.pdf
+data/raw_questions/*.png
+data/sorted_questions/
+*.json
+
+# Logs
+logs/*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Selenium
+*.log
+geckodriver.log
+
+# Keep directory structure
+!data/pdfs/.gitkeep
+!data/raw_questions/.gitkeep
+!data/sorted_questions/.gitkeep
+!logs/.gitkeep
