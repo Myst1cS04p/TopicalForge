@@ -1,22 +1,15 @@
-# TopicalForge
-
 **CIE A-Level Past Paper Question Extractor & Organizer**
 
 Automatically downloads CIE A-Level past papers, extracts individual questions, and provides a UI for organizing them by topic.
 
 ## Features
 
-🔄 **Parallel Processing Pipeline**
+**Parallel Processing Pipeline**
 - **Downloader**: Automatically fetches PDFs from bestexamhelp.com using Selenium
 - **Slicer**: Extracts individual questions from PDFs as images
 - **Sorter**: Clean UI for manually tagging questions by topic
 
-📚 **Supported Subjects**
-- Physics (9702)
-- Mathematics (9709)
-- Computer Science (9618)
-
-🎯 **Smart Organization**
+**Smart Organization**
 - Each question saved as a separate image
 - Automatic matching of questions with mark schemes
 - Topic-based folder structure
@@ -26,7 +19,7 @@ Automatically downloads CIE A-Level past papers, extracts individual questions, 
 
 ### Prerequisites
 
-1. **Python 3.8+** (You have 3.12.3 ✓)
+1. **Python 3.8+**
 2. **Chrome/Chromium browser** (for Selenium)
 3. **ChromeDriver** (matching your Chrome version)
 
@@ -44,7 +37,6 @@ sudo apt install chromium-chromedriver
 ### Install Python Dependencies
 
 ```bash
-cd topicalforge
 pip install -r requirements.txt --break-system-packages
 ```
 
@@ -54,28 +46,6 @@ Required packages:
 - `PyMuPDF` - PDF parsing
 - `pdf2image` - PDF to image conversion
 - `watchdog` - File system monitoring
-
-## Project Structure
-
-```
-topicalforge/
-├── main.py              # Main orchestrator
-├── config.py            # Configuration settings
-├── downloader.py        # Selenium-based PDF downloader
-├── slicer.py           # Question extractor
-├── sorter.py           # UI for topic tagging
-├── requirements.txt    # Python dependencies
-├── data/
-│   ├── pdfs/                  # Downloaded papers (auto-created)
-│   ├── raw_questions/         # Extracted questions (auto-created)
-│   ├── sorted_questions/      # Organized by topic (auto-created)
-│   └── questions_db.json      # Metadata database
-└── logs/
-    ├── main.log
-    ├── downloader.log
-    ├── slicer.log
-    └── sorter.log
-```
 
 ## Usage
 
@@ -94,7 +64,7 @@ Select option **1** to run all workers together.
 python3 main.py
 # Select: 1
 ```
-Runs Downloader → Slicer → Sorter in parallel
+Runs Downloader -> Slicer -> Sorter in parallel
 
 **Mode 2: Download Only**
 ```bash
@@ -200,86 +170,6 @@ All metadata stored in `data/questions_db.json`:
 }
 ```
 
-## Troubleshooting
-
-### Selenium/ChromeDriver Issues
-
-**Error: "chromedriver not found"**
-```bash
-# Check if installed
-which chromedriver
-
-# If not found, install
-sudo apt install chromium-chromedriver
-```
-
-**Error: "Chrome version mismatch"**
-```bash
-# Check Chrome version
-google-chrome --version
-
-# Install matching ChromeDriver from:
-# https://chromedriver.chromium.org/downloads
-```
-
-### PDF Processing Issues
-
-**Questions not detected properly**
-- Check `logs/slicer.log` for details
-- CIE formats are usually consistent, but some old papers may vary
-- You can adjust question patterns in `config.py`
-
-**Images too large/small**
-- Adjust DPI in `slicer.py`: `mat = fitz.Matrix(2.0, 2.0)`
-- Higher values = better quality but larger files
-
-### Download Issues
-
-**403 Forbidden errors**
-- bestexamhelp.com has rate limiting
-- Increase delays in `downloader.py`
-- Run in non-headless mode to see what's happening
-
-**PDFs not downloading**
-- Check if site structure changed
-- Verify URLs manually first
-- Check `logs/downloader.log`
-
-## Performance Tips
-
-### Speed Up Processing
-
-1. **Disable headless mode during setup** (easier debugging)
-2. **Process subjects separately** for faster iteration
-3. **Use multiple terminals**:
-   ```bash
-   # Terminal 1
-   python3 downloader.py
-   
-   # Terminal 2  
-   python3 slicer.py
-   
-   # Terminal 3
-   python3 sorter.py
-   ```
-
-### Storage Considerations
-
-- ~50MB per subject per year (PDFs)
-- ~200MB for extracted questions (images)
-- Use external drive if space is limited
-
-## Future Enhancements (Not Yet Implemented)
-
-- [ ] Mark scheme text extraction
-- [ ] Automatic marks extraction from MS
-- [ ] Question difficulty estimation
-- [ ] Progress tracking & analytics
-- [ ] AI-powered question generation
-- [ ] Multi-board support (Edexcel, AQA, OCR)
-- [ ] Native question solving interface
-- [ ] Cloud sync
-
 ## License & Legal
 
 This tool is for **personal educational use only**.
@@ -287,7 +177,6 @@ This tool is for **personal educational use only**.
 - Respects bestexamhelp.com's terms of use
 - Does not redistribute copyrighted content
 - Uses publicly available past papers
-- Rate-limited to avoid server strain
 
 ## Contributing
 
@@ -305,6 +194,7 @@ Built with:
 
 ---
 
-**Happy studying! 📚✨**
+**Happy studying!**
 
-Made with ❤️ for CIE students worldwide
+Made with love for CIE students worldwide
+> *please star the project ts took way too long*
