@@ -122,11 +122,27 @@ Edit `config.py` to customize:
 START_YEAR = 2015
 END_YEAR = 2024
 
+# Paper types
+SESSIONS = ["s", "w"]
+PAPER_TYPES = ["qp", "ms"]
+
 # Browser mode
 HEADLESS_MODE = False  # Set True for background operation
 
 # Add more topics per subject
-SUBJECTS["9702"]["topics"].append("Your Custom Topic")
+SUBJECTS = {
+    "subject code": {
+        "name": "name of sub",
+        "label": "human readable name",
+        "papers": ["1", "2", "3", "4", "5" ...],
+        "topics": [
+            "topic1",
+            "topic2",
+            "topic3",
+            "topic4",
+            ...
+        ],
+    },
 ```
 
 ## Database Format
@@ -154,14 +170,6 @@ All metadata stored in `data/questions_db.json`:
   }
 }
 ```
-
-## License & Legal
-
-This tool is for **personal educational use only**.
-
-- Respects bestexamhelp.com's terms of use
-- Does not redistribute copyrighted content
-- Uses publicly available past papers
 
 ## Contributing
 
