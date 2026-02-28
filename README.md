@@ -171,11 +171,7 @@ Open an issue or submit a pull request!
 
 ## Credits
 
-Built with:
-- Selenium (web automation)
-- PyMuPDF (PDF processing)
-- Tkinter (GUI)
-- Watchdog (file monitoring)
+[@Myst1cS04p](https://myst1cs04p.github.io/)
 
 ---
 
