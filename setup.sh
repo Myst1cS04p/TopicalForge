@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "========================================"
-echo "Myt1c's Past Paper Parser Setup Script"
+echo "TopicalForge Setup Script"
 echo "========================================"
 echo ""
 
@@ -67,7 +67,7 @@ echo "For more information, see README.md"
 echo "If you'd like to report an issue please contact me at:"
 echo "myst1cso4p on Discord"
 echo " or "
-echo "Open an issue on GitHub: https://github.com/Myst1cS04p/Myst1cs-Paper-Parser/issues"
+echo "Open an issue on GitHub: https://github.com/Myst1cS04p/TopicalForge/issues"
 echo " or, (if you're an unc) "
 echo "Email: myst1cs04p@gmail.com"
 echo "========================================"
