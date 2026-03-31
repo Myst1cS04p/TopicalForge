@@ -49,3 +49,4 @@ geckodriver.log
 !data/raw_questions/.gitkeep
 !data/sorted_questions/.gitkeep
 !logs/.gitkeep
+logs/
