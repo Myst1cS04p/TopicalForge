@@ -50,3 +50,4 @@ geckodriver.log
 !data/sorted_questions/.gitkeep
 !logs/.gitkeep
 logs/
+.venv/
